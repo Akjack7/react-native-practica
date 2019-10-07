@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {SafeAreaView, FlatList, RefreshControl,Text} from 'react-native';
+import {SafeAreaView, FlatList, RefreshControl,Text, View} from 'react-native';
 import styles from './styles';
 import {Actions} from 'react-native-router-flux';
-//import {HouseCell} from '../../molecules';
-//import _ from 'lodash';
-import api from '../../../api'
+import _ from 'lodash';
+import * as api from '../../../api'
+import PokeCell from '../../molecules/poke-cell';
 
 
 class MainPoke extends Component {
@@ -14,28 +14,36 @@ class MainPoke extends Component {
         super(props);
         this.state = {
             pokelist: []
-        }
+        }        
+
       }
 
       componentWillMount() {
-        //   this.fetchPokeList()
+        this.fetchPokeList()
        }
      
        fetchPokeList() {
          api.getPokemons().then(res => {
-             console.log("pokes:", res)
+             this.setState({pokelist: res.data.results})
          }).catch(err => {
              console.log("Error al recibir los pokemons")
          })
        }
 
+       _renderItem(item) {
+         return <PokeCell item={item} onPress={() => this.props.onPokeTapped(item)}/>
+       }
+
   render() {
 
+    console.log("Pokelist",this.state.pokelist)
     return (
-      <SafeAreaView >
-        <Text>Hola</Text>
+        <FlatList
+        data={this.state.pokelist}
+        renderItem={({item}) => this._renderItem(item)}
+        
+        />
 
-      </SafeAreaView>
     );
   }
 }
