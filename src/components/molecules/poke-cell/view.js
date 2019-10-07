@@ -17,7 +17,6 @@ export default class PokeCell extends React.Component {
         const {item} = this.props
         const imageUri = { uri: item.url.name }
 
-        console.log("Imagen",imageUri)
         return (
             <TouchableOpacity style={styles.styleCell} onPress= {this.props.onPress}>
             

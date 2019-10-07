@@ -36,7 +36,6 @@ class MainPoke extends Component {
 
   render() {
 
-    console.log("Pokelist",this.state.pokelist)
     return (
         <FlatList
         data={this.state.pokelist}
