@@ -11,10 +11,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    fetchHousesList: () => {
-      dispatch(pokeActions.fetchHousesList());
+    fetchPokeList: () => {
+      dispatch(pokeActions.fetchPokeList());
     },
-    updateItem: house => {
+    updateItem: pokemon => {
       dispatch(pokeActions.updateItem(pokemon));
     },
   };

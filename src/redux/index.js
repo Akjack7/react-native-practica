@@ -1,3 +1,3 @@
-import pokemons from './mainPoke';
+import pokemons from './pokemons';
 
 export {pokemons};

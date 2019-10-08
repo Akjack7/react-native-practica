@@ -9,42 +9,43 @@ import PokeCell from '../../molecules/poke-cell';
 
 class MainPoke extends Component {
   
+  componentDidMount() {
+    this.props.fetchPokeList();
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            pokelist: []
-        }        
 
-      }
-
-      componentWillMount() {
-        this.fetchPokeList()
-       }
-     
-       fetchPokeList() {
-         api.getPokemons().then(res => {
-             this.setState({pokelist: res.data.results})
-         }).catch(err => {
-             console.log("Error al recibir los pokemons")
-         })
-       }
-
-       _renderItem(item) {
-         return <PokeCell item={item} onPress={() => this.props.onPokeTapped(item)}/>
-       }
+  _renderItem = ({item}) => (
+    <PokeCell
+      pokemon={item}
+     // onHousePress={house => this._onHouseTapped(house)}
+    />
+  );
 
   render() {
+    const {pokemonsList, isFetching} = this.props;
 
     return (
+      <SafeAreaView style={styles.container}>
         <FlatList
-        data={this.state.pokelist}
-        renderItem={({item}) => this._renderItem(item)}
-        
+          style={styles.styleCell}
+          data={pokemonsList}
+          renderItem={this._renderItem}
+          keyExtractor={item => `pokemon-${item.id}`}
+          numColumns={2}
+          extraData={this.props}
+          refreshControl={
+            <RefreshControl
+              refreshing={isFetching}
+              onRefresh={this.props.fetchPokeList}
+              tintColor={'white'}
+              colors={['white']}
+            />
+          }
         />
-
+      </SafeAreaView>
     );
   }
-}
+  }
+
 
 export default MainPoke;
