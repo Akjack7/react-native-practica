@@ -2,9 +2,11 @@ import {connect} from 'react-redux';
 import {pokeActions} from '../../../redux/pokemons';
 import View from './view';
 const mapStateToProps = state => {
+  console.log("En estado",state)
   return {
-    pokemonList: state.pokemons.pokemons,
+    pokemonList: state.pokemons.list,
     isFetching: state.pokemons.isFetching,
+    hola: "hola"
   };
 };
 

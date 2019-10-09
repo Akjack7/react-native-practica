@@ -15,25 +15,29 @@ class MainPoke extends Component {
   }
 
 
-  _renderItem = ({item}) => (
-    
-    <PokeCell
-      pokemon={item}
-     // onHousePress={house => this._onHouseTapped(house)}
-    
-    />
-  );
+  _renderItem = ({item} ) => {
+    console.log("item",item)
+    return (
+        
+        <PokeCell
+          item={item}
+         // onHousePress={house => this._onHouseTapped(house)}
+        
+        />
+        
+      )};
 
   render() {
-    const {pokemonsList, isFetching} = this.props;
+    console.log("ver hola",this.props.pokemonList)
+    const {pokemonList, isFetching} = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <FlatList
           style={styles.styleCell}
-          data={pokemonsList}
+          data={pokemonList}
           renderItem={this._renderItem}
-          keyExtractor={item => `pokemon-${item.id}`}
-          numColumns={2}
+          keyExtractor={(item,index) => `pokemon-${index}`}
+          numColumns={1}
           extraData={this.props}
           refreshControl={
             <RefreshControl
