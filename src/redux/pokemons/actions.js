@@ -31,9 +31,8 @@ export const fetchPokeList = () => {
       // GET POKE LIST FROM API
       dispatch(setFetching(true));
       const getPokeRes = await api.getPokemons();
-      const pokemons = _.get(getPokeRes, 'res.data.results', []);
-
-      console.log("actions pokes", pokemons)
+      const pokemons = _.get(getPokeRes, 'data.results', []);
+ 
       // DISPATCH ACTION TO UPDATE VALUE IN REDUCER
       dispatch(updateList(pokemons));
     } catch (e) {

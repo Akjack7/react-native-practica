@@ -11,19 +11,21 @@ class MainPoke extends Component {
   
   componentDidMount() {
     this.props.fetchPokeList();
+
   }
 
 
   _renderItem = ({item}) => (
+    
     <PokeCell
       pokemon={item}
      // onHousePress={house => this._onHouseTapped(house)}
+    
     />
   );
 
   render() {
     const {pokemonsList, isFetching} = this.props;
-
     return (
       <SafeAreaView style={styles.container}>
         <FlatList
