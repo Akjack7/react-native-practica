@@ -16,13 +16,6 @@ const reducer = (state = initialState, action = {}) => {
         item: action.value,
       };
 
-    case types.DETAIL_UPDATE_LIST:
-      return {
-        ...state,
-        list: action.list,
-        total: action.total,
-      };
-
     case types.DETAIL_SET_FETCHING:
       return {
         ...state,

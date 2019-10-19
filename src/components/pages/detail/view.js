@@ -8,20 +8,21 @@ import _ from 'lodash';
 class Detail extends React.Component {
   constructor(props) {
     super(props);
-  //  this.props.initCharactersList();
+  }
+
+  componentDidMount() {
+    //this.props.fetchPokeDetail();
+
+
   }
 
   
-
-  
-
-  
   render() {
-    const {detailList, isFetching} = this.props;
-
+    const {pokemon, isFetching} = this.props;
+    console.log(pokemon)
     return (
       <SafeAreaView style={styles.container}>
-        <Text>Hola</Text>
+        <Text>{pokemon.url}</Text>
       </SafeAreaView>
     );
   }

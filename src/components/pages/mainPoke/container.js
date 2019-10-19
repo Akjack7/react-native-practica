@@ -1,6 +1,8 @@
 import {connect} from 'react-redux';
 import {pokeActions} from '../../../redux/pokemons';
 import View from './view';
+
+console.log("PokeactionsMain",pokeActions)
 const mapStateToProps = state => {
   return {
     pokemonList: state.pokemons.list,

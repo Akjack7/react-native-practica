@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Stack, Scene, Actions } from 'react-native-router-flux';
 import { MainPoke } from '../../pages';
 import Detail from '../../pages/detail';
-//import styles, {navBarStyles} from './styles';
+import styles, {navBarStyles} from './styles';
 
 const Routes = () => (
   <Router>
@@ -13,6 +13,7 @@ const Routes = () => (
         key="Detail"
         component={Detail}
         onRight={() => Actions.Detail()}
+        {...navBarStyles}
 
       />
 

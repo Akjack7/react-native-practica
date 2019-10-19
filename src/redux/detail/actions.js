@@ -1,7 +1,6 @@
 import * as types from './types';
 import * as api from '../../api';
 import _ from 'lodash';
-import {Actions} from 'react-native-router-flux';
 
 export const setFetching = value => {
   return {
@@ -10,13 +9,6 @@ export const setFetching = value => {
   };
 };
 
-export const updateList = (list, total) => {
-  return {
-    type: types.DETAIL_UPDATE_LIST,
-    list: list,
-    total: total,
-  };
-};
 
 export const updateItem = value => {
   return {
@@ -41,33 +33,20 @@ export const initDetailList = () => {
 };
 
 
-export const postDetail = data => {
+// FETCH POKE OPT 1 (AWAIT)
+export const fetchPokeDetail = () => {
   return async (dispatch, getState) => {
-    const house = getState().houses.item;
-    if (!house) {
-      return;
-    }
-
     try {
+      // GET POKE FROM API
       dispatch(setFetching(true));
-      const postPokemonRes = await api.postPokemon(data);
-      const character = _.get(postPokemonRes, 'data.record', null);
-      console.log('postPokemonRes res: ', postPokemonRes);
-
-      // OPT 1:
-      // const {total, list} = getState().characters;
-      // const newTotal = total + 1;
-      // const newList = [...list, postCharacterRes];
-      // dispatch(updateList(newList, newTotal));
-
-      // OPT 2:
-      dispatch(initDetailList());
-
-      if (character) {
-        Actions.pop();
-      }
+      const getPokeRes = await api.getPokemon("https://pokeapi.co/api/v2/pokemon/1/");
+      console.log("getpokeresDetail",getPokeRes)
+      const pokemon = _.get(getPokeRes, '', []);
+ 
+      // DISPATCH ACTION TO UPDATE VALUE IN REDUCER
+      dispatch(updateItem(pokemon));
     } catch (e) {
-      console.log('postCharacter error: ', e.message);
+      console.log('fetchPokemonsList err: ', e.message);
     } finally {
       dispatch(setFetching(false));
     }

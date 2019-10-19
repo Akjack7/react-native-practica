@@ -18,9 +18,8 @@ class MainPoke extends Component {
 
   _onPokemonTapped = item => {
     this.props.updateItem(item);
-    
     Actions.Detail({
-      title: _.get(item.name),
+      title: item.name,
     });
   };
 

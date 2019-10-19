@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     YellowBox.ignoreWarnings(['Warning: componentWillReceiveProps']);
-    StatusBar.setBarStyle('dark-content', false);
+    StatusBar.setBarStyle('dark-content', true);
 
 
   }
