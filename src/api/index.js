@@ -13,14 +13,12 @@ export const getPokemons = () => {
   return instance.get(url);
 };
 
-// CHARACTERS
-/*export const getCharacters = params => {
-  const paramStringify = qs.stringify(params, {skipNulls: true});
-  const url = `/personajes?${paramStringify}`;
+// POKEMON
+export const getPokemon = url => {
+  console.log("url",url)
   return instance.get(url);
 };
 
-export const postCharacter = data => {
-  const url = '/personajes';
-  return instance.post(url, data);
-};*/
+export const postPokemon = data => {
+  return instance.post(data);
+};

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SafeAreaView, FlatList, RefreshControl,Text, View} from 'react-native';
+import {SafeAreaView, FlatList, RefreshControl,Text, View,TouchableOpacity} from 'react-native';
 import styles from './styles';
 import {Actions} from 'react-native-router-flux';
 import _ from 'lodash';
@@ -9,26 +9,36 @@ import PokeCell from '../../molecules/poke-cell';
 
 class MainPoke extends Component {
   
+  
   componentDidMount() {
     this.props.fetchPokeList();
 
+
   }
 
+  _onPokemonTapped = item => {
+    this.props.updateItem(item);
+    
+    Actions.Detail({
+      title: _.get(item.name),
+    });
+  };
 
+ 
   _renderItem = ({item} ) => {
-    console.log("item",item)
+
     return (
         
         <PokeCell
           item={item}
-         // onHousePress={house => this._onHouseTapped(house)}
+          onPokemonPress={item => this._onPokemonTapped(item)}
+          
         
         />
         
       )};
 
   render() {
-    console.log("ver hola",this.props.pokemonList)
     const {pokemonList, isFetching} = this.props;
     return (
       <SafeAreaView style={styles.container}>

@@ -1,6 +1,7 @@
 import React from 'react';
-import {Router, Stack, Scene, Actions} from 'react-native-router-flux';
-import {MainPoke } from '../../pages';
+import { Router, Stack, Scene, Actions } from 'react-native-router-flux';
+import { MainPoke } from '../../pages';
+import Detail from '../../pages/detail';
 //import styles, {navBarStyles} from './styles';
 
 const Routes = () => (
@@ -8,8 +9,17 @@ const Routes = () => (
     <Stack key="root">
       <Scene key="MainPoke" component={MainPoke} initial />
 
-      
+      <Scene
+        key="Detail"
+        component={Detail}
+        onRight={() => Actions.Detail()}
+
+      />
+
+
     </Stack>
+
+
   </Router>
 );
 

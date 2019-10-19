@@ -36,7 +36,7 @@ export const fetchPokeList = () => {
       // DISPATCH ACTION TO UPDATE VALUE IN REDUCER
       dispatch(updateList(pokemons));
     } catch (e) {
-      console.log('fetchHousesList err: ', e.message);
+      console.log('fetchPokemonsList err: ', e.message);
     } finally {
       dispatch(setFetching(false));
     }
