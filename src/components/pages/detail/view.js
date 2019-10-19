@@ -11,7 +11,7 @@ class Detail extends React.Component {
   }
 
   componentDidMount() {
-    //this.props.fetchPokeDetail();
+   // this.props.fetchPokeDetail();
 
 
   }

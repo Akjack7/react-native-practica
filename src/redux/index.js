@@ -1,3 +1,3 @@
 import pokemons from './pokemons';
-
-export {pokemons};
+import detail from './detail';
+export {pokemons, detail};

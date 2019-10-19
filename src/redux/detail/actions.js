@@ -24,27 +24,20 @@ export const updateOffset = value => {
   };
 };
 
-export const initDetailList = () => {
-  return async dispatch => {
-    dispatch(updateList([], 0));
-    dispatch(updateOffset(0));
-    dispatch(fetchDetailList());
-  };
-};
 
 
 // FETCH POKE OPT 1 (AWAIT)
-export const fetchPokeDetail = () => {
+export const fetchPokeDetail = (url) => {
   return async (dispatch, getState) => {
     try {
       // GET POKE FROM API
       dispatch(setFetching(true));
-      const getPokeRes = await api.getPokemon("https://pokeapi.co/api/v2/pokemon/1/");
+      const getPokeRes = await api.getPokemon(url);
       console.log("getpokeresDetail",getPokeRes)
-      const pokemon = _.get(getPokeRes, '', []);
+      const detail = _.get(getPokeRes, '', []);
  
       // DISPATCH ACTION TO UPDATE VALUE IN REDUCER
-      dispatch(updateItem(pokemon));
+      dispatch(updateItem(detail));
     } catch (e) {
       console.log('fetchPokemonsList err: ', e.message);
     } finally {

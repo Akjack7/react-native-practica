@@ -15,7 +15,7 @@ export const getPokemons = () => {
 
 // POKEMON
 export const getPokemon = url => {
-  console.log("url",url)
+  console.log("url desde api",url)
   return instance.get(url);
 };
 

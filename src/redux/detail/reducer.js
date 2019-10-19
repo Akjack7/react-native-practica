@@ -1,8 +1,6 @@
 import * as types from './types';
 
 const initialState = {
-  list: [],
-  total: 0,
   offset: 0,
   item: null,
   isFetching: false,

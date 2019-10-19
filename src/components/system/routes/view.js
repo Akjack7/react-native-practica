@@ -7,7 +7,7 @@ import styles, {navBarStyles} from './styles';
 const Routes = () => (
   <Router>
     <Stack key="root">
-      <Scene key="MainPoke" component={MainPoke} initial />
+      <Scene key="MainPoke" component={MainPoke} initial  {...navBarStyles}/>
 
       <Scene
         key="Detail"

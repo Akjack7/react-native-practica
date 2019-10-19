@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {pokeActions} from '../../../redux/detail';
 import View from './view';
 
-console.log("Pokeactions",pokeActions)
+console.log("PokeactionsDetail",pokeActions)
 
 const mapStateToProps = state => {
   return {
