@@ -19,7 +19,7 @@ export default class PokeCell extends React.Component {
         return (
             <TouchableOpacity style={styles.styleCell} onPress={() => this.props.onPokemonPress(this.props.item)}>
             
-            <Text>{item.name}</Text>
+            <Text style={styles.styleCellText}>{item.name}</Text>
             </TouchableOpacity>
         )
     }
