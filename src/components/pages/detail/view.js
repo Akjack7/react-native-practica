@@ -6,17 +6,17 @@ import _ from 'lodash';
 class Detail extends React.Component {
   constructor(props) {
     super(props);
-    this.props.setPokemon(this.props.pokemon.url);
+    this.props.setPokemon(this.props.pokemon.url)
   }
-  
+
   componentDidMount() {
    
   }
 
   
   render() {
-    const {pokemon, isFetching} = this.props;
-    console.log(pokemon)
+    const {pokemon, isFetching, pokemonDetail} = this.props;
+    console.log("PokemonDetail",pokemonDetail.detail)
     return (
       <SafeAreaView style={styles.container}>
         <Text>{pokemon.url}</Text>

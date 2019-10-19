@@ -11,6 +11,7 @@ export const setFetching = value => {
 
 
 export const updateItem = value => {
+  console.log("Desde actions",value)
   return {
     type: types.DETAIL_UPDATE_ITEM,
     value,
@@ -33,9 +34,8 @@ export const fetchPokeDetail = (url) => {
       // GET POKE FROM API
       dispatch(setFetching(true));
       const getPokeRes = await api.getPokemon(url);
-      console.log("getpokeresDetail",getPokeRes)
-      const detail = _.get(getPokeRes, '', []);
- 
+      const detail = _.get(getPokeRes, 'data', []);
+      console.log("getpokeresDetail",detail)
       // DISPATCH ACTION TO UPDATE VALUE IN REDUCER
       dispatch(updateItem(detail));
     } catch (e) {

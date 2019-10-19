@@ -16,7 +16,9 @@ const mapDispatchToProps = (dispatch, props) => {
       dispatch(pokeActions.fetchPokeList());
     },
     updateItem: pokemon => {
-      dispatch(pokeActions.updateItem(pokemon));
+      dispatch(pokeActions.updateItem(pokemon)),
+      console.log("containerUpdateMain",pokemon)
+
     },
   };
 };

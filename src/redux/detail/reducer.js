@@ -2,16 +2,17 @@ import * as types from './types';
 
 const initialState = {
   offset: 0,
-  item: null,
+  detail: null,
   isFetching: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case types.DETAIL_UPDATE_ITEM:
+    console.log("Desde reducer",action.value)
       return {
         ...state,
-        item: action.value,
+        detail: action.value,
       };
 
     case types.DETAIL_SET_FETCHING:
