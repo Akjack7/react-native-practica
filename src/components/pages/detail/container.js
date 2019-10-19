@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
-import {pokeActions} from '../../../redux/detail';
+import {detailActions} from '../../../redux/detail';
 import View from './view';
 
-console.log("PokeactionsDetail",pokeActions)
+console.log("PokeactionsDetail",detailActions)
 
 const mapStateToProps = state => {
   return {
@@ -13,9 +13,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    fetchPokeDetail: () => {
-      dispatch(pokeActions.fetchPokeDetail(this.state.pokemon.url));
-    },
+      setPokemon: data => dispatch(detailActions.fetchPokeDetail(data))
   };
 };
 
