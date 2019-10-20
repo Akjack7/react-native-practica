@@ -14,14 +14,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    fetchPokeList: () => {
-      dispatch(pokeActions.fetchPokeList());
-    },
-    updateItem: pokemon => {
-      dispatch(pokeActions.updateItem(pokemon)),
-      console.log("containerUpdateMain",pokemon)
-
-    },
+   
+    initPokeList: () => dispatch(pokeActions.initPokeList()),
+    updatePokeListOffset: () =>
+      dispatch(pokeActions.updatePokeListOffset()),
+    updateItem: pokemon =>
+      dispatch(pokeActions.updateItem(pokemon))
+   
   };
 };
 

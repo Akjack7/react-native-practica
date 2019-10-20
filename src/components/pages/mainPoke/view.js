@@ -11,7 +11,7 @@ class MainPoke extends Component {
   
   
   componentDidMount() {
-    this.props.fetchPokeList();
+    this.props.initPokeList();
 
 
   }
@@ -57,10 +57,12 @@ class MainPoke extends Component {
           keyExtractor={(item,index) => `pokemon-${index}`}
           numColumns={1}
           extraData={this.props}
+          onEndReached={this._onEndReached}
+          onEndReachedThreshold={0.8}
           refreshControl={
             <RefreshControl
               refreshing={isFetching}
-              onRefresh={this.props.fetchPokeList}
+              onRefresh={this.props.initPokeList}
               tintColor={'white'}
               colors={['white']}
             />

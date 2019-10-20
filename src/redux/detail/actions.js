@@ -39,7 +39,7 @@ export const fetchPokeDetail = (url) => {
       // DISPATCH ACTION TO UPDATE VALUE IN REDUCER
       dispatch(updateItem(detail));
     } catch (e) {
-      console.log('fetchPokemonsList err: ', e.message);
+      console.log('fetchPokemonsListDetail err: ', e.message);
     } finally {
       dispatch(setFetching(false));
     }
