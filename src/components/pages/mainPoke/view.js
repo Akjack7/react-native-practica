@@ -28,7 +28,7 @@ class MainPoke extends Component {
     const onEndReached =
       distanceFromEnd > 100 && !isFetching && pokemonList.length < total;
     if (onEndReached) {
-      this.props.updatePokemonsListOffset();
+      this.props.updatePokeListOffset();
     }
   };
 

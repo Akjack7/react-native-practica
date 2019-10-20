@@ -13,7 +13,7 @@ const reducer = (state = initialState, action = {}) => {
     case types.POKE_UPDATE_LIST:
       return {
         ...state,
-        list: action.value,
+        list: action.list,
         total: action.total,
       };
     case types.POKE_UPDATE_ITEM:
