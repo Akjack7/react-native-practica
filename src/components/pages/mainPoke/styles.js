@@ -17,7 +17,7 @@ export default StyleSheet.create({
 
   },
   styleCellText: {
-    color: colors.white,
+    color: colors.yellow,
     fontSize: 30,
     backgroundColor: colors.orange,
     

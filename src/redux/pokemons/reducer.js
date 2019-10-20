@@ -4,6 +4,8 @@ const initialState = {
   list: [],
   item: null,
   isFetching: false,
+  total: 0,
+  offset: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -12,6 +14,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.value,
+        total: action.total,
       };
     case types.POKE_UPDATE_ITEM:
       return {
@@ -24,6 +27,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         isFetching: action.value,
       };
+
+      case types.POKE_UPDATE_OFFSET:
+      return {
+        ...state,
+        offset: action.value,
+      }; 
 
     default:
       return state;

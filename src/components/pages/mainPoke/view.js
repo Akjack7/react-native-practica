@@ -23,6 +23,15 @@ class MainPoke extends Component {
     });
   };
 
+  _onEndReached = ({distanceFromEnd}) => {
+    const {isFetching, pokemonList, total} = this.props;
+    const onEndReached =
+      distanceFromEnd > 100 && !isFetching && pokemonList.length < total;
+    if (onEndReached) {
+      this.props.updatePokemonsListOffset();
+    }
+  };
+
  
   _renderItem = ({item} ) => {
 

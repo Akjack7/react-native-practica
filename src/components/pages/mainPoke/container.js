@@ -7,6 +7,8 @@ const mapStateToProps = state => {
   return {
     pokemonList: state.pokemons.list,
     isFetching: state.pokemons.isFetching,
+    total: state.pokemons.total,
+    offset: state.pokemons.offset
   };
 };
 
