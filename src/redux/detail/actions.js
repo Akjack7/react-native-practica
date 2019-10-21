@@ -11,9 +11,15 @@ export const setFetching = value => {
 
 
 export const updateItem = value => {
-  console.log("Desde actions",value)
   return {
     type: types.DETAIL_UPDATE_ITEM,
+    value,
+  };
+};
+
+export const updateMessage = value => {
+  return {
+    type: types.DETAIL_UPDATE_MESSAGE,
     value,
   };
 };
@@ -35,11 +41,9 @@ export const fetchPokeDetail = (url) => {
       dispatch(setFetching(true));
       const getPokeRes = await api.getPokemon(url);
       const detail = _.get(getPokeRes, 'data', []);
-      console.log("getpokeresDetail",detail)
       // DISPATCH ACTION TO UPDATE VALUE IN REDUCER
       dispatch(updateItem(detail));
     } catch (e) {
-      console.log('fetchPokemonsListDetail err: ', e.message);
     } finally {
       dispatch(setFetching(false));
     }

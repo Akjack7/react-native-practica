@@ -10,13 +10,11 @@ const instance = axios.create({
 // Pokemons
 export const getPokemons = params => {
   const url = `/pokemon/?limit=${params.limit}&offset=${params.offset}`;
-  console.log("URL CON PAGINACION", url)
   return instance.get(url);
 };
 
 // POKEMON
 export const getPokemon = url => {
-  console.log("url desde api",url)
   return instance.get(url);
 };
 

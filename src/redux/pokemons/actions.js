@@ -61,7 +61,6 @@ export const fetchPokeList = () => {
       const params = {offset: offset, limit: LIMIT};
       const getPokeRes = await api.getPokemons(params);
       
-      console.log("newList", getState().pokemons)
       // ALL REDUCER LIST ELEMENTS + NEW LIMIT (20) ELEMENTS
       const newList = [...list, ..._.get(getPokeRes, 'data.results', [])];
       
@@ -69,7 +68,6 @@ export const fetchPokeList = () => {
       // DISPATCH ACTION TO UPDATE VALUE IN REDUCER
       dispatch(updateList(newList,total));
     } catch (e) {
-      console.log('fetchPokemonsList err: ', e.message);
     } finally {
       dispatch(setFetching(false));
     }

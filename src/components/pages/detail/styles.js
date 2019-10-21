@@ -40,6 +40,24 @@ export default StyleSheet.create({
         fontSize: 30,
         color: 'black',
         marginTop: 0,
+    },
+
+    messageTitle : {
+        marginTop: 50,
+        marginVertical: 30,
+        textAlign: 'center', 
+        fontWeight: 'bold',
+        fontSize: 30,
+        color: 'black',
+    },
+
+    comment : {
+        
+        padding:30,
+        textAlign: 'center', 
+        fontWeight: 'bold',
+        color: colors.white,
     }
+
     
   });

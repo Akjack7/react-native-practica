@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, FlatList, RefreshControl, Text, Image, View } from 'react-native';
+import { SafeAreaView, FlatList, RefreshControl, Text, Image, View , ScrollView} from 'react-native';
 import styles from './styles';
 import _ from 'lodash';
 
@@ -15,13 +15,17 @@ class Detail extends React.Component {
 
 
   render() {
-    const { pokemon, isFetching, pokemonDetail } = this.props;
+    const { pokemon, isFetching, pokemonDetail, message } = this.props;
     const image = _.get(pokemonDetail, 'detail.sprites.front_default')
     const weight = _.get(pokemonDetail, 'detail.weight')
     const abilities = _.get(pokemonDetail, 'detail.abilities')
-    console.log("pokeDataPintar", image)
+    const comment = _.get(message,'message')
+
+
+    
     return (
       <SafeAreaView style={styles.container}>
+      <ScrollView>
         <Image
           source={{ uri: image }}
           style={styles.imageStyle}
@@ -49,6 +53,10 @@ class Detail extends React.Component {
         >
 
         </FlatList>
+
+        <Text style={styles.messageTitle}>Comentarios:</Text>
+        <Text style={styles.comment}>{comment}</Text>
+        </ScrollView>
       </SafeAreaView>
     );
   }

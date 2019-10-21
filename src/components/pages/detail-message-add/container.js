@@ -1,29 +1,24 @@
 import {connect} from 'react-redux';
 import {detailActions} from '../../../redux/detail';
-import View from './view';
-
+import {PokeForm} from '../../organisms';
 
 const mapStateToProps = state => {
   return {
     pokemon: state.pokemons.item,
     isFetching: state.pokemons.isFetching,
     pokemonDetail: state.detail,
-    message: state.detail.message
+    message: state.message
+
   };
 };
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-      setPokemon: data => dispatch(detailActions.fetchPokeDetail(data)),
-
-      updateItem: detail => {
-        dispatch(detailActions.updateItem(detail))
-        
-      },
+    submitMessage: data => dispatch(detailActions.updateMessage(data)),
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(View);
+)(PokeForm);
